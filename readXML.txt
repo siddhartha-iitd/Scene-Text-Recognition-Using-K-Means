@@ -1,0 +1,17 @@
+>> javaaddpath('E:\Users\SIDDHARTHA\Downloads\MachineLearning\Text Recognition\xerces-2_11_0\xercesImpl.jar');
+>> javaaddpath('E:\Users\SIDDHARTHA\Downloads\MachineLearning\Text Recognition\xerces-2_11_0\xml-apis.jar');
+
+ filename = 'sample.xml';
+ 
+ % These 3 lines are equivalent to xDoc = xmlread(filename) in matlab
+ parser = javaObject('org.apache.xerces.parsers.DOMParser');
+ parser.parse(filename); 
+ xDoc = parser.getDocument;
+ 
+ % get first data element 
+ elem = xDoc.getElementsByTagName('data').item(0);
+ % get text from child
+ data = elem.getFirstChild.getTextContent
+ % get attribute named att
+ att = elem.getAttribute('att')
+
